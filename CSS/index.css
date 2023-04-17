@@ -2,6 +2,7 @@
     margin: 0;
     box-sizing: border-box;
     list-style: none;
+    scroll-behavior: smooth;
 }
 
 html {
@@ -13,63 +14,99 @@ body {
     background-color: #0a192f;
 }
 
-/* Navigation Section */
-.navigation {
-    display: flex;
-    flex-direction: row;
-    position: fixed;
+.container1 {
+    position: relative;
     width: 100%;
-    height: 60px;
-    top: 0;
-    left: 0;
-    background-color: #0a192f;
-    opacity: 1;
-    padding: 5px;
-    transition: 1s ease-in-out;
 }
 
+section {
+    position: relative;
+    min-height: 100vh;
+    margin-top: 20vh;
+}
+
+/* Navigation Section */
+.mainheader {
+    display: flex;
+    position: fixed;
+    height: 100px;
+    width: 100%;
+    padding: 0 40px;
+    background-color: #0a192f !important;
+    filter: none !important;
+    pointer-events: auto !important;
+    user-select: auto !important;
+    transition: 1s ease-in-out;
+    top: 0;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    z-index: 10000;
+}
+
+.navigation {
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 120000;
+    display: flex;
+    position: relative;
+}
+/* .active
+{
+  transform: translateX(-400px);
+} */
 .hidden_nav {
-    transform: translateY(-100px);
+    transform: translateY(-150px);
+}
+
+.images {
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 
 .menu {
-    align-items: flex-start;
-    align-content: flex-start;
-    align-self: flex-start;
-    flex: 0 0 40%;
+    display: flex;
+    align-items: center;
 }
-.about,
-.experience,
-.work,
-.contact,
-.resume {
-    display: inline-block;
-    padding: 5px;
-    margin: 20px 20px 0 0;
+
+.menu ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+}
+
+.menu a {
     text-decoration: none;
-    font-size: 16px;
+    color: #8892b0;
+}
+
+.menu ul li {
+    margin: 0 15px;
+    position: relative;
+    font-size: 20px;
     font-family: cursive;
     color: #8892b0;
     text-align: center;
-    text-decoration: none;
 }
 
 span {
     color: #53d4ba;
 }
 
-.resume {
+.resume_bt {
     border-radius: 5px;
     background-color: transparent;
     cursor: pointer;
     color: #53d4ba;
-    ;
+    font-size: 20px;
+    margin-left: 15px;
     border: 2px solid #53d4ba;
-}
-
-.images {
-    flex-basis: 60%;
-    flex: 0 1 60%;
 }
 
 /* Introduction Section */
@@ -118,19 +155,17 @@ span {
 /* About Section */
 .about_section {
     margin-top: 10vh;
-    height: 90vh;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-self: center;
-    overflow: hidden;
 }
 
 .about_me {
     display: flex;
     flex-direction: row;
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: 10%;
+    margin-right: 10%;
     flex-basis: 100%;
     align-items: flex-start;
 }
@@ -155,7 +190,7 @@ span {
 .brief_introduction {
     color: #808ba8;
     font-family: 'calibri';
-    flex-basis: 50%;
+    flex-basis: 60%;
     flex-grow: 0;
     flex-shrink: 1;
     margin-right: 40px;
@@ -183,11 +218,9 @@ span {
 /* Work Section */
 .work_history {
     margin-top: 15vh;
-    height: 80vh;
     width: 100%;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
 }
 
 .work_experience {
@@ -214,9 +247,13 @@ span {
     padding: 10px;
     font-family: calibri;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 0;
     color: #808ba8;
     font-weight: lighter;
+}
+
+.job1 {
+    font-size: 15px;
 }
 
 .column1 button {
@@ -225,16 +262,33 @@ span {
     width: 100%;
     padding: 10px 20px 10px 10px;
     color: #808ba8;
+    font-size: 15px;
     border: 0;
-    font-size: 16px;
+    text-align: center;
+    border-left: 2px solid #233554;
+    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 .column1 button:hover {
     cursor: pointer;
     color: #53d4ba;
     background-color: rgba(83, 212, 186, 0.2);
+    border-left: 3px solid green;
 }
 
+/* .column1 button{
+overflow-y: scroll;
+direction: rtl;
+}
+.column1 button::-webkit-scrollbar {
+    width: 10px;
+    height: 14px;
+    background-color: #aaa; /* or add it to the track 
+  }
+  .column1 button::-webkit-scrollbar-thumb {
+    background: #000;
+  } 
+  */
 .amazon_duties {
     display: flex;
     flex-direction: column;
@@ -272,8 +326,6 @@ span {
 
 /* Projects Section */
 .projects {
-    margin-top: 10vh;
-    height: 70vh;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -379,13 +431,10 @@ span {
 }
 
 .services {
-    margin-top: 10vh;
-    height: 90vh;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: top;
-    overflow: hidden;
 }
 
 .service_info {
@@ -537,7 +586,8 @@ span {
     flex-direction: column;
     flex-basis: 100%;
     margin: 5% 25% 10% 25%;
-    box-shadow: inset 3px 3px 0 gainsboro;
+    box-shadow: inset 3px 2px 0 gainsboro, 3px 3px 0 gainsboro;
+    ;
 }
 
 #reachout {
@@ -601,7 +651,8 @@ textarea {
     background-color: transparent;
     color: #8892b0;
     cursor: pointer;
-    transform: translateX(200%);
+    position: relative;
+    left: calc(40%);
     border: 2px solid green;
 }
 
@@ -644,7 +695,6 @@ textarea {
 }
 
 .copyright {
-    margin-top: 5vh;
     position: relative;
     left: calc(45%);
     align-items: center;
@@ -652,4 +702,208 @@ textarea {
     color: #a5afce;
     font-size: 20px;
     padding: 15px;
+}
+
+/* Media */
+@media only screen and (max-width:997px) {
+    .projects .contents {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .info {
+        width: 80%;
+    }
+
+    .about_me {
+        flex-direction: column;
+        margin: 0 30px;
+        align-items: center;
+    }
+
+    .work_experience {
+        display: flex;
+        flex-direction: row;
+        margin: 0 30px;
+    }
+
+    .work_history {
+        margin-top: 50vh;
+    }
+
+    .amazon {
+        margin-bottom: 10px;
+    }
+
+    .detail_box {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .reachout_form {
+        margin: 5%;
+    }
+
+    .social1 li {
+        display: inline;
+        margin: 0 10px;
+    }
+
+    .social1 {
+        display: inline;
+        position: relative;
+        left: calc(35%);
+    }
+
+    .social2 {
+        opacity: 0;
+    }
+}
+
+@media only screen and (max-width:600px) {
+    .mainheader {
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 300px;
+        height: 100%;
+        background: var(--white2);
+        transition: width 0.5s, left 0.5s;
+        border: 3px solid red;
+    }
+
+    .hidden_nav {
+        transform: translateY(0px);
+    }
+
+    .menu,
+    .menu ul, .navigation,.images {
+        flex-direction: column;
+    }
+    .menu li, .menu button{
+        justify-self: left;
+        margin-bottom: 20px;
+    }
+    .images{
+        margin-bottom: 40px;
+        justify-self: left;
+    }
+    .Introduction {
+        margin: 0 30px;
+    }
+    .menu,
+    .hi,
+    .info,
+    .amazon_duties {
+        font-size: 16px;
+    }
+
+    .amazon_role {
+        font-size: 18px;
+    }
+
+    .soft,
+    .name {
+        font-size: 30px;
+    }
+
+    .projects .contents {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .about_me {
+        flex-direction: column;
+        margin: 0 30px;
+        align-items: center;
+    }
+
+    .job1 p,
+    .job1 h3 {
+        margin: 0;
+        padding: 0;
+    }
+
+    .amazon_duties {
+        flex-basis: 100%;
+    }
+
+    .profile_pix {
+        margin-top: 20px;
+        width: 250px;
+        height: 250px;
+    }
+
+    .work_experience {
+        display: flex;
+        flex-direction: column;
+        margin: 0 30px;
+    }
+
+    .work_history {
+        margin-top: 50vh;
+    }
+
+    .amazon {
+        margin-bottom: 10px;
+    }
+
+    .column1 {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+
+    }
+
+    .column1 button:hover {
+        border-left: 0;
+        border-bottom: 3px solid green;
+    }
+
+    .column1::-webkit-scrollbar {
+        width: 10px;
+        height: 14px;
+        background-color: #aaa;
+        /* or add it to the track */
+    }
+
+    .column1::-webkit-scrollbar-thumb {
+        background: #000;
+    }
+
+    .column1 button {
+        display: inline-block;
+        width: 40%;
+        border-bottom: 2px solid #233554;
+        border-left: 0;
+    }
+
+    .detail_box {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .reachout_form {
+        margin: 5%;
+    }
+
+    .social1 li {
+        display: inline;
+        margin: 0 10px;
+    }
+
+    .social1 {
+        display: inline;
+        position: relative;
+        left: calc(35%);
+    }
+
+    .social2 {
+        opacity: 0;
+    }
+
+    .container {
+        display: none;
+    }
 }

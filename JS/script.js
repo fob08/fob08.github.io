@@ -3,7 +3,11 @@ const gdansk = document.getElementById("gdansk")
 const uk = document.getElementById("uk")
 const nigeria = document.getElementById("nigeria")
 const warsaw = document.getElementById("warsaw")
+const mediaQuery = window.matchMedia('(max-width: 600px)')
 const innertext = Ama.innerHTML
+const menu_click = document.querySelectorAll(".menu")
+const navigation = document.querySelector(".mainheader");
+
 gdansk.addEventListener("click", function (event) {
     Ama.innerHTML = `<p class="amazon_role">Compliance Associate <span>@ Amazon</span></p>
         <p class="amazon_time">October 2022 - Present</p>
@@ -28,7 +32,31 @@ gdansk.addEventListener("click", function (event) {
                 informed
                 decision.
             </li>
-        </ol>`
+        </ol>`;
+        gdansk.style.backgroundColor = 'rgba(83, 212, 186, 0.2)';
+        uk.style.backgroundColor = 'transparent';
+        nigeria.style.backgroundColor = 'transparent';
+
+        function handleScreenChange(e){
+            if(e.matches){
+                gdansk.style.borderBottom = '2px solid green';
+                uk.style.borderBottom = '2px solid #233554';
+                nigeria.style.borderBottom = '2px solid #233554';
+                gdansk.style.borderLeft= '0';
+                uk.style.borderLeft = '0';
+                nigeria.style.borderLeft = '0';
+            }
+            else{
+                uk.style.borderBottom = '0';
+                nigeria.style.borderBottom = '0';
+                uk.style.borderLeft = '2px solid #233554';
+                nigeria.style.borderLeft = '2px solid #233554';
+                gdansk.style.borderLeft = '2px solid green';
+            }
+            mediaQuery.addEventListener(handleScreenChange);
+            handleScreenChange(mediaQuery)
+        }
+        
 })
 uk.addEventListener("click", function (event) {
     Ama.innerHTML = `<p class="amazon_role">ServiceNow NextGen <span>@ ServiceNow</span></p>
@@ -57,7 +85,26 @@ uk.addEventListener("click", function (event) {
                 includes the
                 Incident, Request, Problem and Change Management.
             </li>
-        </ol>`
+        </ol>`;
+        uk.style.backgroundColor = 'rgba(83, 212, 186, 0.2)';
+        gdansk.style.backgroundColor = 'transparent';
+        nigeria.style.backgroundColor = 'transparent';
+        if(mediaQuery.matches){
+            uk.style.borderBottom = '2px solid green';
+            gdansk.style.borderBottom = '2px solid #233554';
+            nigeria.style.borderBottom = '2px solid #233554';
+            gdansk.style.borderLeft= '0'
+            uk.style.borderLeft = '0';
+            nigeria.style.borderLeft = '0';
+        }
+        else{
+            gdansk.style.borderBottom = '0';
+            nigeria.style.borderBottom = '0';
+            gdansk.style.borderLeft = '2px solid #233554';
+            nigeria.style.borderLeft = '2px solid #233554';
+            uk.style.borderLeft= '2px solid green';
+            
+        }
 })
 nigeria.addEventListener("click", function (event) {
     Ama.innerHTML = `<p class="amazon_role">Energy Data Analyst <span>@ Christapeace Technologies</span></p>
@@ -80,7 +127,28 @@ nigeria.addEventListener("click", function (event) {
             <li>
                 Facilitated energy data collection across the country.
             </li>
-        </ol>`
+        </ol>`;
+       
+        nigeria.style.backgroundColor = 'rgba(83, 212, 186, 0.2)';
+        uk.style.backgroundColor = 'transparent';
+        gdansk.style.backgroundColor = 'transparent';
+        if(mediaQuery.matches){
+            nigeria.style.borderBottom = '2px solid green';
+            uk.style.borderBottom = '2px solid #233554';
+            gdansk.style.borderBottom = '2px solid #233554';
+            gdansk.style.borderLeft= '0'
+            uk.style.borderLeft = '0';
+            nigeria.style.borderLeft = '0';
+        }
+        else{
+            uk.style.borderBottom = '0';
+            gdansk.style.borderBottom = '0';
+            nigeria.style.borderBottom = '0';
+            uk.style.borderLeft = '2px solid #233554';
+            gdansk.style.borderLeft = '2px solid #233554';
+            nigeria.style.borderLeft = '2px solid green';
+        }
+        
 })
 
 var swiper = new Swiper(".mySwiper", {
@@ -97,7 +165,7 @@ var swiper = new Swiper(".mySwiper", {
     },
 });
 
-const navigation = document.querySelector(".navigation");
+
 let LatestScroll = window.scrollY;
 window.addEventListener("scroll", () => {
     if (LatestScroll < window.scrollY) {
@@ -108,3 +176,4 @@ window.addEventListener("scroll", () => {
     }
     LatestScroll = window.scrollY
 });
+
