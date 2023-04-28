@@ -761,7 +761,7 @@ textarea {
 }
 
 @media only screen and (max-width:600px) {
-    .mainheader {
+    /* .mainheader {
         flex-direction: column;
         position: fixed;
         top: 0;
@@ -775,12 +775,12 @@ textarea {
 
     .hidden_nav {
         transform: translateY(0px);
-    }
+    } */
 
-    .menu,
+    /* .menu,
     .menu ul, .navigation,.images {
         flex-direction: column;
-    }
+    } */
     .menu li, .menu button{
         justify-self: left;
         margin-bottom: 20px;
